@@ -1,4 +1,4 @@
-import vhCheck from './vh-check.js';
-import './scroll-next.js';
+import vhCheck from 'vh-check';
+import 'scroll-next';
 
 vhCheck('browser-address-bar');

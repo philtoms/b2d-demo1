@@ -1,9 +1,10 @@
+import importMap from './import-map';
+
 // optional SSR perf improvement.
 // Not really necessary with defer refined script loading - undeferred script would
 // kick in immediately. For now audiusa.com forces all scripts to wait until DOM complete
 // - hence the current jank. This fixes that!
-import vhCheck from './vh-check-static.js';
-
+import vhCheck from './vh-check-static';
 // again, not necessary when we re-visit the component source design but this highlights
 // the timeless power of scripting over applications.
 // NB: this is the only code-fix required for auto-playing MUI videos and its 100% SSR
@@ -26,12 +27,11 @@ const injectHtml = (buffer) => {
 };
 
 const injectScript = (buffer) => {
-  return buffer
-    .replace(/<script[^<]+<\/script>/g, '')
-    .replace(
-      /<\/body>/,
-      `\n<script type="module" src="/src/script.js" defer></script></body>`
-    );
+  return buffer.replace(/<script[^<]+<\/script>/g, '').replace(
+    /<\/body>/,
+    `\n${importMap}
+    <script type="module-shim" src="/src/script.js" defer></script></body>`
+  );
 };
 
 // cache incomplete script elements and reattach on next chunk

@@ -7,6 +7,10 @@ import inject from './inject';
 const app = express();
 
 app.use(compression());
+app.use(
+  '/node_modules',
+  express.static(path.resolve(__dirname, '../node_modules'))
+);
 app.use('/src', express.static(path.resolve(__dirname, '../src')));
 app.use(
   '/',
