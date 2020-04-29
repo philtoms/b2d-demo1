@@ -29,7 +29,7 @@ app.use(
         'accept-encoding': 'identity',
       },
       onProxyRes: function (proxyRes, { url, headers: { referer } }, res) {
-        if (!referer && url.endsWith('?script')) {
+        if (!referer && url.includes('?script')) {
           const _write = res.write;
           let id;
           let body;
