@@ -1,22 +1,20 @@
-# B2D Demo 1
+## Description
 
-## install / run
+A small unfinished POC that explores one way of expressing the intentionality of a web page.
 
-`yarn && TARGET=https://www.audiusa.com node ./index.js`
+This is the final instalment of a series of Back to DOM POCs exploring the prospect of simplified, performant applications through a more traditional approach to development where server renders form and style, and browser overlays dynamic behaviour.
 
-## test
+### Overview
 
-`http://localhost:8080/models/audi-e-tron?script` vs `https://www.audiusa.com/models/audi-e-tron`
+Back to DOM is not a _back to JQuery_ kind of argument. But without expressed examples of programmed intent it can be viewed in that bad light. This POC focuses on the idea of programmed intentionality as a direct replacement for the co-located component pattern of development currently in vogue and typified by React.
 
-## observations
+Programmed intentionality is a structured expression of operational behaviour, defined independently of the page or application such that it can be imported and integrated into the operating context of a variety of pages that express overlapping intentions.
 
-### StageGeneric component
+In this example, an intentional script is defined as a direct replacement for the run-time overhead of React hydration, saving client side bandwidth, improving bootstrap performance and reducing SSR render complexity through the relaxation of isomorphic constraints.
 
-- Prod: Media plays after application has re-hydrated
-- B2D: Plays as soon as media buffer is primed
+This POC contends that
 
-- Prod: Image height jank (due to above)
-- B2D: No jank
-
-- Prod: Scroll-next does not update history
-- B2D: Scroll-next correctly updates history
+- Javascript is not optimal but adequate for expressing intentionality
+- intentionality can be rationally interpreted as agreement
+- intentionality can provide its own semantic scope - consistent rules without framework lock-in
+- intentionality does not compromise contemporary patterns and best practices
